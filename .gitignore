@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+myvenv/
+
+# Flask
+instance/
+.env
+
+# IDE or editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# Others
+.DS_Store
+*.sqlite3

@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.partial {
+    color: orange;
+    font-weight: bold;
+}
+
+.wrong {
+    color: red;
+    font-weight: bold;
+}
+
+#result p {
+    margin: 10px 0;
+}
