@@ -11,7 +11,7 @@ def load_words(file_path):
     return words
 
 # Path to your words file
-file_path = "D:\Projects\Python\wordle_clone\words_alpha.txt"
+file_path = "D:/Projects/Python/wordle_clone/words_alpha.txt"
 
 # Load words from file
 word_list = load_words(file_path)
