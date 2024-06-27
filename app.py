@@ -1,5 +1,22 @@
 from flask import Flask, render_template, request, session
 import random
+import os
+
+# Construct the path to words_alpha.txt
+file_path = os.path.join(os.path.dirname(__file__), 'words_alpha.txt')
+
+# Ensure the path is correctly formed
+print(f"File path: {file_path}")
+
+# Function to load words
+def load_words(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        words = [word.strip() for word in file]
+    return words
+
+# Example usage
+word_list = load_words(file_path)
+
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -11,7 +28,7 @@ def load_words(file_path):
     return words
 
 # Path to your words file
-file_path = "D:/Projects/Python/wordle_clone/words_alpha.txt"
+file_path = os.path.join(os.path.dirname(__file__), 'words_alpha.txt')
 
 # Load words from file
 word_list = load_words(file_path)
