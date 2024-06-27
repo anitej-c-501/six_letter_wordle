@@ -1,0 +1,1 @@
+Wordle but the words have 6 letters instead of 5. Harder to solve than the normal one. Coded using python and designed using html
