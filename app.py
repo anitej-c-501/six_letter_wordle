@@ -2,22 +2,6 @@ from flask import Flask, render_template, request, session
 import random
 import os
 
-# Construct the path to words_alpha.txt
-file_path = os.path.join(os.path.dirname(__file__), 'words_alpha.txt')
-
-# Ensure the path is correctly formed
-print(f"File path: {file_path}")
-
-# Function to load words
-def load_words(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        words = [word.strip() for word in file]
-    return words
-
-# Example usage
-word_list = load_words(file_path)
-
-
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
@@ -29,12 +13,15 @@ def load_words(file_path):
 
 # Path to your words file
 file_path = os.path.join(os.path.dirname(__file__), 'words_alpha.txt')
+file_path_2 = os.path.join(os.path.dirname(__file__), 'word_solutions.txt')
 
 # Load words from file
 word_list = load_words(file_path)
+solutions = load_words(file_path_2)
 
 # Filter six-letter words
-six_letter_words = [word.lower() for word in word_list if len(word) == 6 and word.isalpha()]
+six_letter_words = [word.lower() for word in solutions if len(word) == 6 and word.isalpha()]
+six_letter_word_guesses = [word.lower() for word in word_list if len(word) == 6 and word.isalpha()]
 
 @app.route('/')
 def index():
@@ -55,7 +42,7 @@ def play():
         session['messages'].append("Your guess needs to be 6 letters")
         return render_template('index.html', messages=session['messages'])
 
-    if guess not in six_letter_words:
+    if guess not in six_letter_word_guesses:
         session['messages'].append("Your guess is invalid")
         return render_template('index.html', messages=session['messages'])
 
